@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://r3r8gaset8m3"]
+
+[ext_resource type="Script" path="res://Scripts/AntBehavior.gd" id="1_shoal"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_frfiu"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mw30"]
+albedo_color = Color(0.145098, 0.172549, 0.141176, 1)
+
+[node name="Ant" type="Node3D"]
+script = ExtResource("1_shoal")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_frfiu")
+surface_material_override/0 = SubResource("StandardMaterial3D_1mw30")

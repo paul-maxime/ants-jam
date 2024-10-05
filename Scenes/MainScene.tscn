@@ -1,19 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=9 format=3 uid="uid://2rqc6a04mfde"]
+
+[ext_resource type="PackedScene" uid="uid://c0k2rl8b50qh0" path="res://Scenes/Entities/AppleFull.tscn" id="1_80hfu"]
+[ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
+[ext_resource type="PackedScene" uid="uid://dltxvxm05i45i" path="res://Scenes/Entities/AppleHalf.tscn" id="2_flclq"]
+[ext_resource type="PackedScene" uid="uid://bwa1bu27jc1xt" path="res://Scenes/Entities/AppleEaten.tscn" id="3_bqdx3"]
+[ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
+
+[sub_resource type="Environment" id="Environment_jn7eq"]
+background_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g57c2"]
+albedo_color = Color(0, 0.180392, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
-
-[sub_resource type="Environment" id="Environment_524nq"]
+material = SubResource("StandardMaterial3D_g57c2")
 
 [node name="MainScene" type="Node3D"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_m7b6i")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.912406, 0.409286, 0, -0.409286, 0.912406, 0, 0.482812, 1.3077)
+script = ExtResource("1_b32fq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_524nq")
+environment = SubResource("Environment_jn7eq")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379951, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 10)
+
+[node name="TheSun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.744312, -0.473874, 0.470578, 0, 0.704634, 0.709571, -0.667833, -0.528141, 0.524467, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0)
+mesh = SubResource("PlaneMesh_m7b6i")
+
+[node name="AppleFull" parent="." groups=["food"] instance=ExtResource("1_80hfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -12.574)
+
+[node name="AppleHalf" parent="." groups=["food"] instance=ExtResource("2_flclq")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 17.5135, 0.6, -3.60922)
+
+[node name="AppleEaten" parent="." groups=["food"] instance=ExtResource("3_bqdx3")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -13.895, 0.6, 1.66271)
+
+[node name="AntHill" parent="." instance=ExtResource("5_1an05")]
