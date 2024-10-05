@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2rqc6a04mfde"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
+
+[sub_resource type="Environment" id="Environment_524nq"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_m7b6i")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.912406, 0.409286, 0, -0.409286, 0.912406, 0, 0.482812, 1.3077)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_524nq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379951, 0)
