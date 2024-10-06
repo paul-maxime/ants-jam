@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
 
 [sub_resource type="Environment" id="Environment_sq114"]
+background_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g57c2"]
-albedo_color = Color(0, 0.180392, 0, 1)
+albedo_color = Color(0.360784, 0.356863, 0.356863, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
 material = SubResource("StandardMaterial3D_g57c2")
@@ -26,6 +27,10 @@ environment = SubResource("Environment_sq114")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+shadow_bias = 0.5
+shadow_normal_bias = 4.0
+shadow_opacity = 0.8
+directional_shadow_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 35, 50, 35)
@@ -43,9 +48,10 @@ mesh = SubResource("PlaneMesh_m7b6i")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -12.574)
 
 [node name="AppleHalf" parent="." groups=["food"] instance=ExtResource("2_flclq")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 17.5135, 0.6, -3.60922)
+transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, 17.5135, 0.6, -3.60922)
 
 [node name="AppleEaten" parent="." groups=["food"] instance=ExtResource("3_bqdx3")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -13.895, 0.6, 1.66271)
+transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, -13.895, 0.6, 1.66271)
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0518431, 0)
