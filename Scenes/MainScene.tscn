@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=12 format=3 uid="uid://2rqc6a04mfde"]
 
 [ext_resource type="PackedScene" uid="uid://c0k2rl8b50qh0" path="res://Scenes/Entities/AppleFull.tscn" id="1_80hfu"]
 [ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dltxvxm05i45i" path="res://Scenes/Entities/AppleHalf.tscn" id="2_flclq"]
 [ext_resource type="PackedScene" uid="uid://bwa1bu27jc1xt" path="res://Scenes/Entities/AppleEaten.tscn" id="3_bqdx3"]
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
+[ext_resource type="Material" uid="uid://dyhywepo0rtlc" path="res://PostProcessOutline.tres" id="7_twcb7"]
 
 [sub_resource type="Environment" id="Environment_sq114"]
 
@@ -15,6 +16,11 @@ albedo_color = Color(0, 0.180392, 0, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
 material = SubResource("StandardMaterial3D_g57c2")
 size = Vector2(1000, 1000)
+
+[sub_resource type="QuadMesh" id="QuadMesh_pvqy4"]
+material = ExtResource("7_twcb7")
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_b32fq")
@@ -49,3 +55,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -13.895, 0.6, 1.66271)
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_pvqy4")
