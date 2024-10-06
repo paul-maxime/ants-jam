@@ -11,7 +11,7 @@
 background_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g57c2"]
-albedo_color = Color(0.360784, 0.356863, 0.356863, 1)
+albedo_color = Color(0.560784, 0.556863, 0.541176, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
 material = SubResource("StandardMaterial3D_g57c2")
@@ -25,7 +25,6 @@ environment = SubResource("Environment_sq114")
 
 [node name="TheSun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
-light_energy = 2.0
 shadow_enabled = true
 shadow_bias = 0.5
 shadow_normal_bias = 4.0

@@ -19,6 +19,10 @@ func _ready() -> void:
 	current_angle = randf_range(-PI, PI)
 	expected_angle = current_angle
 	next_turn = randf_range(WALK_FOR_MIN, WALK_FOR_MAX)
+	
+	var random_scale = randf_range(1, 2)
+	scale *= Vector3(random_scale, random_scale, random_scale)
+
 	find_food()
 
 func _process(delta: float) -> void:

@@ -152,10 +152,10 @@ bind/38/bone = -1
 bind/38/pose = Transform3D(1, 0, 0, 0, 0.71685, 0.697228, 0, -0.697228, 0.71685, 0, -4.26417, -0.825786)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t1b4h"]
-albedo_texture = ExtResource("2_dtt4l")
+albedo_color = Color(0.0509804, 0.054902, 0.0392157, 1)
 
 [node name="Ant" type="Node3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
 script = ExtResource("1_shoal")
 
 [node name="Ant Armature" type="Node3D" parent="."]
