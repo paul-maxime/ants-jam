@@ -41,15 +41,11 @@ mesh = SubResource("PlaneMesh_m7b6i")
 
 [node name="AppleFull" parent="." groups=["food"] instance=ExtResource("1_80hfu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -12.574)
-visible = false
 
 [node name="AppleHalf" parent="." groups=["food"] instance=ExtResource("2_flclq")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 17.5135, 0.6, -3.60922)
-visible = false
 
 [node name="AppleEaten" parent="." groups=["food"] instance=ExtResource("3_bqdx3")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -13.895, 0.6, 1.66271)
-visible = false
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
-visible = false
