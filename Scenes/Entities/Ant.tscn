@@ -1625,7 +1625,6 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_shoal")
 
 [node name="Ant Body" type="Node3D" parent="."]
-visible = false
 
 [node name="Ant Armature" type="Node3D" parent="Ant Body"]
 transform = Transform3D(100, 0, 0, 0, 71.685, -69.7228, 0, 69.7228, 71.685, 0, 2.48101, 3.56506)
@@ -1990,6 +1989,7 @@ bones/50/rotation = Quaternion(0, 0, 0, 1)
 bones/50/scale = Vector3(1, 1, 1)
 
 [node name="Ant" type="MeshInstance3D" parent="Ant Body/Ant Armature/Skeleton3D"]
+visible = false
 mesh = SubResource("ArrayMesh_0x8px")
 skin = SubResource("Skin_tl1y0")
 surface_material_override/0 = ExtResource("2_6ggvh")
