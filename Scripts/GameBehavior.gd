@@ -102,7 +102,3 @@ func _on_buy_matriarch_button_pressed() -> void:
 	ant.upgrade(3, 3.5)
 	add_child(ant)
 	update_ants_count()
-
-func _on_buy_queen_button_pressed() -> void:
-	# TODO : win animation
-	pass

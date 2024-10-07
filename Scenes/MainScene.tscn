@@ -129,14 +129,8 @@ layout_mode = 2
 text = "X / Y matriarchs
 (X workers, Y food)"
 
-[node name="BuyQueenButton" type="Button" parent="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "0 / 1 queens
-(10 matriarchs)"
-
 [connection signal="ants_changed" from="." to="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer" method="_on_main_scene_ants_changed"]
 [connection signal="food_changed" from="." to="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer" method="_on_main_scene_food_changed"]
 [connection signal="pressed" from="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyAntlingButton" to="." method="_on_buy_antling_button_pressed"]
 [connection signal="pressed" from="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyWorkerAntButton" to="." method="_on_buy_worker_ant_button_pressed"]
 [connection signal="pressed" from="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyMatriarchButton" to="." method="_on_buy_matriarch_button_pressed"]
-[connection signal="pressed" from="ShopMarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyQueenButton" to="." method="_on_buy_queen_button_pressed"]
