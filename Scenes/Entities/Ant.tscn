@@ -8,7 +8,6 @@
 [ext_resource type="Material" uid="uid://rkgw41gud1ot" path="res://Materials/AppleSeedMaterial.tres" id="4_5bcyw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_y8wfp"]
-material = ExtResource("2_6ggvh")
 size = Vector3(10, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px1wi"]
