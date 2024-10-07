@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=11 format=3 uid="uid://2rqc6a04mfde"]
 
 [ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
 [ext_resource type="Script" path="res://Scripts/CameraBehavior.gd" id="2_fi50c"]
 [ext_resource type="Material" uid="uid://c488l48egtnos" path="res://Materials/FloorMaterial.tres" id="3_d8mch"]
+[ext_resource type="Script" path="res://Scripts/FogOfWar.gd" id="4_sfarn"]
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
 [ext_resource type="Script" path="res://Scripts/FpsCounter.gd" id="5_7mfua"]
 [ext_resource type="Script" path="res://Scripts/ColorPalette.gd" id="5_34va3"]
@@ -41,9 +42,13 @@ near = 1.0
 far = 100.0
 script = ExtResource("2_fi50c")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="BasicFloor" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_m7b6i")
+
+[node name="FogOfWar" type="Node3D" parent="."]
+script = ExtResource("4_sfarn")
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0518431, 0)

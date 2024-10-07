@@ -29,6 +29,7 @@ func spawn_apple(min_distance: float) -> void:
 		break
 	
 	var apple: Node3D = apple_scene.instantiate()
+	apple.visible = false
 	apple.position = position
 	apple.rotation = randf_range(-PI, PI) * Vector3.UP
 	add_child(apple)

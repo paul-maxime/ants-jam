@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://tw5g3hchfnd8"]
+
+[ext_resource type="Material" uid="uid://c488l48egtnos" path="res://Materials/FloorMaterial.tres" id="1_h2l2v"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hja26"]
+material = ExtResource("1_h2l2v")
+
+[node name="FloorPart" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_hja26")
