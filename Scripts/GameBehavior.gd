@@ -6,19 +6,17 @@ var apple_scene = preload("res://Scenes/Entities/Apple.tscn")
 func _ready() -> void:
 	print("Spawning ants...")
 	for i in range(100):
-		print(i)
 		add_child(ant_scene.instantiate())
 	print("Spawning apples...")
-	for i in range(500):
-		print(i)
+	for i in range(80):
 		spawn_apple()
 
 func spawn_apple() -> void:
 	var position
 	var other_apples: Array[Node] = get_tree().get_nodes_in_group("food")
 	for i in range(1000):
-		position = Vector3(randf_range(-100, 100), 0, randf_range(-100, 100))
-		if position.distance_to(Vector3(0, 0, 0)) < 15: continue
+		position = Vector3(randf_range(-50, 50), 0, randf_range(-50, 50))
+		if position.distance_to(Vector3(0, 0, 0)) < 10: continue
 		if is_apple_near_position(position, other_apples): continue
 		break
 	
@@ -31,3 +29,6 @@ func is_apple_near_position(position: Vector3, other_apples: Array[Node]):
 		if position.distance_to(other_apple.position) < 5:
 			return true
 	return false
+
+func _process(_delta: float) -> void:
+	$FpsCounterLabel.text = "FPS: " + str(Engine.get_frames_per_second())

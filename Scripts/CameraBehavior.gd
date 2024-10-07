@@ -2,7 +2,7 @@ extends Camera3D
 
 const HARD_LIMIT_MIN = -110
 const HARD_LIMIT_MAX = 190
-const ZOOM_LEVELS = [5, 6, 8, 10, 15, 25, 35, 45, 55]
+const ZOOM_LEVELS = [5, 6, 8, 10, 15, 25, 35, 45]
 
 var current_zoom = 5
 
