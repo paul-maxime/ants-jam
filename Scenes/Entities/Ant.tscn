@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://r3r8gaset8m3"]
+[gd_scene load_steps=24 format=4 uid="uid://r3r8gaset8m3"]
 
 [ext_resource type="Script" path="res://Scripts/AntBehavior.gd" id="1_shoal"]
 [ext_resource type="Material" uid="uid://cxg44be240h1y" path="res://Materials/AntBodyMaterial.tres" id="2_6ggvh"]
@@ -6,6 +6,10 @@
 [ext_resource type="Material" uid="uid://jo8ecud0v8m8" path="res://Materials/AppleSkinMaterial.tres" id="3_cfa4a"]
 [ext_resource type="Material" uid="uid://c6f6vt8ln2kde" path="res://Materials/AntEyesMaterial.tres" id="3_msdd0"]
 [ext_resource type="Material" uid="uid://rkgw41gud1ot" path="res://Materials/AppleSeedMaterial.tres" id="4_5bcyw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8wfp"]
+material = ExtResource("2_6ggvh")
+size = Vector3(10, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px1wi"]
 resource_name = "Color #0D0E00"
@@ -1624,7 +1628,12 @@ shadow_mesh = SubResource("ArrayMesh_mv7f3")
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_shoal")
 
+[node name="Ant Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_y8wfp")
+
 [node name="Ant Body" type="Node3D" parent="."]
+visible = false
 
 [node name="Ant Armature" type="Node3D" parent="Ant Body"]
 transform = Transform3D(100, 0, 0, 0, 71.685, -69.7228, 0, 69.7228, 71.685, 0, 2.48101, 3.56506)
