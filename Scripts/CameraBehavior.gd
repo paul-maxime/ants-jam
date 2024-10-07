@@ -19,6 +19,7 @@ func _input(event) -> void:
 					size = ZOOM_LEVELS[current_zoom]
 	elif event is InputEventMouseMotion:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			print("Camera moved ", event.relative)
 			position -= Vector3(event.relative.x, 0, event.relative.y).rotated(Vector3.UP, PI / 4) * size / 600.0
 			enforce_limits()
 
