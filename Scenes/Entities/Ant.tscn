@@ -1629,6 +1629,7 @@ script = ExtResource("1_shoal")
 
 [node name="Ant Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+visible = false
 mesh = SubResource("BoxMesh_y8wfp")
 
 [node name="Ant Body" type="Node3D" parent="."]
