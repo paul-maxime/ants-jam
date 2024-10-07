@@ -1,4 +1,4 @@
-extends Node
+extends Button
 
 const SOGGY_NEWSPAPERS_BLACK = Color("0d0e0a")
 const SOGGY_NEWSPAPERS_GRAY = Color("5c5b5b")
@@ -39,13 +39,14 @@ var is_black_and_white = false
 
 func _ready() -> void:
 	apply_black_white_palette()
-	$SwapPaletteButton.connect("pressed", swap_palette)
+	connect("pressed", swap_palette)
 
 func swap_palette() -> void:
 	if not is_black_and_white:
 		apply_black_white_palette()
 	else:
 		revert_color_palette()
+	text = "Colors: " + ("OFF" if is_black_and_white else "ON")
 
 func apply_black_white_palette() -> void:
 	is_black_and_white = true

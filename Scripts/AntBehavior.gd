@@ -14,6 +14,7 @@ var current_size: float = 1
 
 var target_food: Node3D = null
 var has_food: bool = false
+var food_amount: int = 0
 
 var ant_type: int = 1
 var multiplier: float = 1.0
@@ -79,13 +80,13 @@ func wander_randomly(delta: float) -> void:
 
 func gather_food(delta: float) -> void:
 	if move_ant_towards(delta, target_food.position):
-		target_food.take_food(1)
+		food_amount = target_food.take_food(ant_type)
 		has_food = true
 		$AppleBite.visible = true
 
 func return_to_anthill(delta: float) -> void:
 	if move_ant_towards(delta, Vector3.ZERO):
-		$/root/MainScene.change_food(1)
+		$/root/MainScene.change_food(food_amount)
 		has_food = false
 		$AppleBite.visible = false
 

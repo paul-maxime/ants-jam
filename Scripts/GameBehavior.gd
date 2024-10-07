@@ -16,17 +16,15 @@ func _ready() -> void:
 	change_food(5)
 	update_ants_count()
 	for i in range(50):
-		spawn_apple()
+		spawn_apple(8)
+		spawn_apple(32)
 
-func _process(_delta: float) -> void:
-	$FpsCounterLabel.text = "FPS: " + str(Engine.get_frames_per_second())
-
-func spawn_apple() -> void:
+func spawn_apple(min_distance: float) -> void:
 	var position
 	var other_apples: Array[Node] = get_tree().get_nodes_in_group("food")
 	for i in range(1000):
 		position = Vector3(randf_range(MAP_MIN + 5, MAP_MAX - 5), 0, randf_range(MAP_MIN + 5, MAP_MAX - 5))
-		if position.distance_to(Vector3(0, 0, 0)) < 8: continue
+		if position.distance_to(Vector3(0, 0, 0)) < min_distance: continue
 		if is_apple_near_position(position, other_apples): continue
 		break
 	
@@ -37,7 +35,7 @@ func spawn_apple() -> void:
 
 func is_apple_near_position(position: Vector3, other_apples: Array[Node]):
 	for other_apple in other_apples:
-		if position.distance_to(other_apple.position) < 5:
+		if position.distance_to(other_apple.position) < 3:
 			return true
 	return false
 
