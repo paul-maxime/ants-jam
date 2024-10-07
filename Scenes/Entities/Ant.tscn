@@ -1625,7 +1625,6 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_shoal")
 
 [node name="Ant Body" type="Node3D" parent="."]
-visible = false
 
 [node name="Ant Armature" type="Node3D" parent="Ant Body"]
 transform = Transform3D(100, 0, 0, 0, 71.685, -69.7228, 0, 69.7228, 71.685, 0, 2.48101, 3.56506)
@@ -2002,6 +2001,7 @@ libraries = {
 
 [node name="AppleBite" type="Node3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 2.57519, -1.64287)
+visible = false
 
 [node name="Apple Bite" type="MeshInstance3D" parent="AppleBite"]
 transform = Transform3D(50.9442, 0, 0, 0, -6.07302e-06, 50.9442, 0, -50.9442, -6.07302e-06, 0, 0.0530804, 0.373188)
