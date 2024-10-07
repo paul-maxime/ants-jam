@@ -34,13 +34,11 @@ func upgrade(type: int, upgrade_scale: float) -> void:
 
 func _process(delta: float) -> void:
 	if pause_for > 0:
-		$"Ant Body/AnimationPlayer".stop()
-		$"Ant Body/Ant Armature/Skeleton3D".show_rest_only = true
+		$"Ant Body/AnimationPlayer".play("Ant Armature|Tracking")
 		pause_for -= delta
 		return
 
-	$"Ant Body/AnimationPlayer".play("Walking")
-	$"Ant Body/Ant Armature/Skeleton3D".show_rest_only = false
+	$"Ant Body/AnimationPlayer".play("Ant Armature|Walking")
 	
 	if not has_food:
 		next_thinking -= delta
