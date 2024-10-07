@@ -1,19 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=8 format=3 uid="uid://2rqc6a04mfde"]
 
 [ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
 [ext_resource type="Script" path="res://Scripts/CameraBehavior.gd" id="2_fi50c"]
-[ext_resource type="Material" uid="uid://dyj31jqstfjnr" path="res://Materials/BlackWhite/LightGrayMaterial.tres" id="3_trt6w"]
+[ext_resource type="Material" uid="uid://c488l48egtnos" path="res://Materials/FloorMaterial.tres" id="3_d8mch"]
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
+[ext_resource type="Script" path="res://Scripts/ColorPalette.gd" id="5_34va3"]
 
 [sub_resource type="Environment" id="Environment_sq114"]
 background_mode = 1
 background_color = Color(0.0509804, 0.054902, 0.0392157, 1)
 ambient_light_source = 1
-ambient_light_energy = 0.0
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
-material = ExtResource("3_trt6w")
-size = Vector2(110, 110)
+material = ExtResource("3_d8mch")
+size = Vector2(80, 80)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_b32fq")
@@ -38,6 +40,7 @@ far = 100.0
 script = ExtResource("2_fi50c")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_m7b6i")
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
@@ -47,3 +50,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0518431, 0)
 offset_right = 40.0
 offset_bottom = 23.0
 text = "FPS"
+
+[node name="ColorPalette" type="Node" parent="."]
+script = ExtResource("5_34va3")
+
+[node name="SwapPaletteButton" type="Button" parent="ColorPalette"]
+offset_top = 40.0
+offset_right = 109.0
+offset_bottom = 71.0
+text = "Swap palette"

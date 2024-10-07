@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4fhu7af1gvl8"]
+
+[resource]
+resource_name = "Stone 1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.679992, 0.369615, 0.138384, 1)
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0

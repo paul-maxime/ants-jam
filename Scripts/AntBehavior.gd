@@ -64,6 +64,10 @@ func think(should_pause: bool) -> void:
 func wander_randomly(delta: float) -> void:
 	if rotate_ant_towards(delta, wandering_angle):
 		position += Vector3(0, 0, 1).rotated(Vector3.UP, get_current_angle()) * delta * SPEED
+		if position.x > $/root/MainScene.MAP_MAX: position.x = $/root/MainScene.MAP_MAX
+		if position.z > $/root/MainScene.MAP_MAX: position.z = $/root/MainScene.MAP_MAX
+		if position.x < $/root/MainScene.MAP_MIN: position.x = $/root/MainScene.MAP_MIN
+		if position.z < $/root/MainScene.MAP_MIN: position.z = $/root/MainScene.MAP_MIN
 
 func gather_food(delta: float) -> void:
 	if move_ant_towards(delta, target_food.position):

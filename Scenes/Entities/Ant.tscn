@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://r3r8gaset8m3"]
+[gd_scene load_steps=18 format=4 uid="uid://r3r8gaset8m3"]
 
 [ext_resource type="Script" path="res://Scripts/AntBehavior.gd" id="1_shoal"]
-[ext_resource type="Material" uid="uid://bwgiul446kniv" path="res://Materials/BlackWhite/WhiteMaterial.tres" id="2_kjs7x"]
-[ext_resource type="Material" uid="uid://dx38p2357iy2b" path="res://Materials/BlackWhite/BlackMaterial.tres" id="3_4vsq1"]
-[ext_resource type="Material" uid="uid://7u43tyhtyw6l" path="res://Materials/BlackWhite/GrayMaterial.tres" id="3_h7wrb"]
+[ext_resource type="Material" uid="uid://cxg44be240h1y" path="res://Materials/AntBodyMaterial.tres" id="2_6ggvh"]
+[ext_resource type="Material" uid="uid://cw2tsao7iy3l1" path="res://Materials/AppleFleshMaterial.tres" id="2_a38qp"]
+[ext_resource type="Material" uid="uid://jo8ecud0v8m8" path="res://Materials/AppleSkinMaterial.tres" id="3_cfa4a"]
+[ext_resource type="Material" uid="uid://c6f6vt8ln2kde" path="res://Materials/AntEyesMaterial.tres" id="3_msdd0"]
+[ext_resource type="Material" uid="uid://rkgw41gud1ot" path="res://Materials/AppleSeedMaterial.tres" id="4_5bcyw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_luwrs"]
 resource_name = "Color #0D0E00"
@@ -751,6 +753,8 @@ bones/38/scale = Vector3(1, 1, 1)
 [node name="Ant" type="MeshInstance3D" parent="Ant Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_okws1")
 skin = SubResource("Skin_pr2bh")
+surface_material_override/0 = ExtResource("2_6ggvh")
+surface_material_override/1 = ExtResource("3_msdd0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -758,13 +762,13 @@ libraries = {
 }
 
 [node name="AppleBite" type="Node3D" parent="."]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 6.5784, -0.996158)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 2.57519, -1.64287)
 visible = false
 
 [node name="Apple Bite" type="MeshInstance3D" parent="AppleBite"]
-transform = Transform3D(50.9442, 0, 0, 0, -6.07302e-06, 50.9442, 0, -50.9442, -6.07302e-06, 0, 0.0530804, 0.205581)
+transform = Transform3D(50.9442, 0, 0, 0, -6.07302e-06, 50.9442, 0, -50.9442, -6.07302e-06, 0, 0.0530804, 0.373188)
 mesh = SubResource("ArrayMesh_qvbva")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("2_kjs7x")
-surface_material_override/1 = ExtResource("3_h7wrb")
-surface_material_override/2 = ExtResource("3_4vsq1")
+surface_material_override/0 = ExtResource("2_a38qp")
+surface_material_override/1 = ExtResource("3_cfa4a")
+surface_material_override/2 = ExtResource("4_5bcyw")

@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://befhdtyv3sdt6"]
+[gd_scene load_steps=15 format=4 uid="uid://befhdtyv3sdt6"]
 
-[ext_resource type="Material" uid="uid://dx38p2357iy2b" path="res://Materials/BlackWhite/BlackMaterial.tres" id="1_jg21n"]
-[ext_resource type="Material" uid="uid://7u43tyhtyw6l" path="res://Materials/BlackWhite/GrayMaterial.tres" id="2_d7r7v"]
-[ext_resource type="Material" uid="uid://dyj31jqstfjnr" path="res://Materials/BlackWhite/LightGrayMaterial.tres" id="3_c0t2g"]
+[ext_resource type="Material" uid="uid://c1tii18jyqdgu" path="res://Materials/AnthillBase.tres" id="1_2yw0t"]
+[ext_resource type="Material" uid="uid://dwm3klps2pdbk" path="res://Materials/AnthillMiddle.tres" id="2_pqrm5"]
+[ext_resource type="Material" uid="uid://cjfpt4q2fd5oh" path="res://Materials/AnthillTop.tres" id="3_s37qf"]
+[ext_resource type="Material" uid="uid://bkpf0dqj5snxj" path="res://Materials/AnthillHole.tres" id="4_cotnb"]
+[ext_resource type="Material" uid="uid://b4fhu7af1gvl8" path="res://Materials/AnthillStone1.tres" id="5_l7201"]
+[ext_resource type="Material" uid="uid://c82kjb45mkx1h" path="res://Materials/AnthillStone2.tres" id="6_an1lj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njg7y"]
 resource_name = "Anthill Base"
@@ -208,9 +211,9 @@ shadow_mesh = SubResource("ArrayMesh_stfso")
 transform = Transform3D(800, 0, 0, 0, -3.49691e-05, 800, 0, -800, -3.49691e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7qc5f")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_jg21n")
-surface_material_override/1 = ExtResource("2_d7r7v")
-surface_material_override/2 = ExtResource("3_c0t2g")
-surface_material_override/3 = ExtResource("1_jg21n")
-surface_material_override/4 = ExtResource("3_c0t2g")
-surface_material_override/5 = ExtResource("2_d7r7v")
+surface_material_override/0 = ExtResource("1_2yw0t")
+surface_material_override/1 = ExtResource("2_pqrm5")
+surface_material_override/2 = ExtResource("3_s37qf")
+surface_material_override/3 = ExtResource("4_cotnb")
+surface_material_override/4 = ExtResource("5_l7201")
+surface_material_override/5 = ExtResource("6_an1lj")
