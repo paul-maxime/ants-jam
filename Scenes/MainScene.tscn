@@ -1,21 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=7 format=3 uid="uid://2rqc6a04mfde"]
 
-[ext_resource type="PackedScene" uid="uid://c0k2rl8b50qh0" path="res://Scenes/Entities/AppleFull.tscn" id="1_80hfu"]
 [ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
 [ext_resource type="Script" path="res://Scripts/CameraBehavior.gd" id="2_fi50c"]
-[ext_resource type="PackedScene" uid="uid://dltxvxm05i45i" path="res://Scenes/Entities/AppleHalf.tscn" id="2_flclq"]
-[ext_resource type="PackedScene" uid="uid://bwa1bu27jc1xt" path="res://Scenes/Entities/AppleEaten.tscn" id="3_bqdx3"]
+[ext_resource type="Material" uid="uid://dyj31jqstfjnr" path="res://Materials/BlackWhite/LightGrayMaterial.tres" id="3_trt6w"]
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
 
 [sub_resource type="Environment" id="Environment_sq114"]
 background_energy_multiplier = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g57c2"]
-albedo_color = Color(0.560784, 0.556863, 0.541176, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7b6i"]
-material = SubResource("StandardMaterial3D_g57c2")
-size = Vector2(1000, 1000)
+material = ExtResource("3_trt6w")
+size = Vector2(220, 220)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_b32fq")
@@ -40,17 +35,7 @@ far = 100.0
 script = ExtResource("2_fi50c")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0414855, -0.0459969, 0.0570922)
 mesh = SubResource("PlaneMesh_m7b6i")
-
-[node name="AppleFull" parent="." groups=["food"] instance=ExtResource("1_80hfu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -12.574)
-
-[node name="AppleHalf" parent="." groups=["food"] instance=ExtResource("2_flclq")]
-transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, 17.5135, 0.6, -3.60922)
-
-[node name="AppleEaten" parent="." groups=["food"] instance=ExtResource("3_bqdx3")]
-transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, -13.895, 0.6, 1.66271)
 
 [node name="AntHill" parent="." instance=ExtResource("5_1an05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0518431, 0)

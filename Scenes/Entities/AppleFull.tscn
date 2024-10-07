@@ -1,4 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://c0k2rl8b50qh0"]
+[gd_scene load_steps=13 format=4 uid="uid://c0k2rl8b50qh0"]
+
+[ext_resource type="Material" uid="uid://7u43tyhtyw6l" path="res://Materials/BlackWhite/GrayMaterial.tres" id="1_mr5je"]
+[ext_resource type="Material" uid="uid://dx38p2357iy2b" path="res://Materials/BlackWhite/BlackMaterial.tres" id="2_j20qn"]
+[ext_resource type="Material" uid="uid://dyj31jqstfjnr" path="res://Materials/BlackWhite/LightGrayMaterial.tres" id="3_bfbmb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctc42"]
 resource_name = "Dark Gray"
@@ -126,20 +130,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_t2cr8")
 
-[node name="Apple" type="Node3D"]
+[node name="AppleFull" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="Apple" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_itaul")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_mr5je")
 
 [node name="Stem" type="MeshInstance3D" parent="Apple"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33419e-05, -4.89041e-06, 0.00871864)
 mesh = SubResource("ArrayMesh_ull76")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_j20qn")
 
 [node name="Leaf" type="MeshInstance3D" parent="Apple"]
 transform = Transform3D(0, -0.147456, 0.16775, 0.130251, 0, 0, 0, 0.16775, 0.147456, 0.000152258, -4.89041e-06, 0.00850393)
 mesh = SubResource("ArrayMesh_b4im7")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_bfbmb")

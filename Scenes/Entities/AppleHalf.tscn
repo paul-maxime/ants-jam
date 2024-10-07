@@ -1,4 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dltxvxm05i45i"]
+[gd_scene load_steps=19 format=4 uid="uid://dltxvxm05i45i"]
+
+[ext_resource type="Material" uid="uid://7u43tyhtyw6l" path="res://Materials/BlackWhite/GrayMaterial.tres" id="1_3l6r2"]
+[ext_resource type="Material" uid="uid://dx38p2357iy2b" path="res://Materials/BlackWhite/BlackMaterial.tres" id="1_bhs4u"]
+[ext_resource type="Material" uid="uid://dyj31jqstfjnr" path="res://Materials/BlackWhite/LightGrayMaterial.tres" id="1_k7bdw"]
+[ext_resource type="Material" uid="uid://bwgiul446kniv" path="res://Materials/BlackWhite/WhiteMaterial.tres" id="2_bn08i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uig8r"]
 resource_name = "Dark Gray"
@@ -233,23 +238,29 @@ transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, 0, 0.6, 0)
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_y2it0")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_3l6r2")
+surface_material_override/1 = ExtResource("2_bn08i")
 
 [node name="AHStem" type="MeshInstance3D" parent="AppleHalf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33419e-05, -4.89041e-06, 0.00871864)
 mesh = SubResource("ArrayMesh_l0oqt")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_bhs4u")
 
 [node name="AHLeaf" type="MeshInstance3D" parent="AppleHalf"]
 transform = Transform3D(0, -0.147456, 0.16775, 0.130251, 0, 0, 0, 0.16775, 0.147456, 0.000152258, -4.89041e-06, 0.00850393)
 mesh = SubResource("ArrayMesh_f0uk5")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_k7bdw")
 
 [node name="AHSeed_1" type="MeshInstance3D" parent="AppleHalf"]
 transform = Transform3D(0.000832061, -0.00598028, 0.034667, -0.0345868, -0.00647514, -0.000286864, 0.00642786, -0.0340671, -0.00603107, 0.00327613, -0.000604396, 0.0014488)
 mesh = SubResource("ArrayMesh_6mb7r")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_bhs4u")
 
 [node name="AHSeed_2" type="MeshInstance3D" parent="AppleHalf"]
 transform = Transform3D(-0.000695023, -0.00665172, 0.0375174, -0.0373118, 0.00772349, 0.000678141, -0.00772199, -0.0367204, -0.00665347, 0.00321369, 0.000719201, 0.00119162)
 mesh = SubResource("ArrayMesh_kuixi")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_bhs4u")
