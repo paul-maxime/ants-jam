@@ -24,9 +24,10 @@ func update_fog() -> void:
 	var all_ants: Array[Node] = get_tree().get_nodes_in_group("ant")
 	var all_food: Array[Node] = get_tree().get_nodes_in_group("food")
 	for ant: Node3D in all_ants:
+		var ant_range: float = 3.0 * ant.multiplier
 		for food in all_food:
-			if ant.position.distance_to(food.position) < 3:
+			if ant.position.distance_to(food.position) < ant_range:
 				food.visible = true
 		for floor_part in all_floor_parts:
-			if ant.position.distance_to(floor_part.position) < 3:
+			if ant.position.distance_to(floor_part.position) < ant_range:
 				floor_part.visible = true
