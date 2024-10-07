@@ -38,9 +38,9 @@ func _process(delta: float) -> void:
 		pause_for -= delta
 		return
 
-	$"Ant Body/AnimationPlayer".speed_scale = 1.5 * multiplier
+	$"Ant Body/AnimationPlayer".speed_scale = 5.0 * multiplier
 	$"Ant Body/AnimationPlayer".play("Ant Armature|Walking")
-	
+
 	if not has_food:
 		next_thinking -= delta
 		if next_thinking < 0:
@@ -80,9 +80,15 @@ func wander_randomly(delta: float) -> void:
 
 func gather_food(delta: float) -> void:
 	if move_ant_towards(delta, target_food.position):
-		food_amount = target_food.take_food(ant_type)
+		food_amount = target_food.take_food(max_food_from_type())
 		has_food = true
 		$AppleBite.visible = true
+
+func max_food_from_type() -> int:
+	if ant_type == 4: return 100
+	if ant_type == 3: return 5
+	if ant_type == 2: return 2
+	return 1
 
 func return_to_anthill(delta: float) -> void:
 	if move_ant_towards(delta, Vector3.ZERO):
