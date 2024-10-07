@@ -4,9 +4,13 @@ var ant_scene = preload("res://Scenes/Entities/Ant.tscn")
 var apple_scene = preload("res://Scenes/Entities/Apple.tscn")
 
 func _ready() -> void:
-	for i in range(10):
+	print("Spawning ants...")
+	for i in range(100):
+		print(i)
 		add_child(ant_scene.instantiate())
-	for i in range(60):
+	print("Spawning apples...")
+	for i in range(500):
+		print(i)
 		spawn_apple()
 
 func spawn_apple() -> void:
