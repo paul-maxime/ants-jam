@@ -19,6 +19,11 @@ func _ready() -> void:
 		spawn_apple(8)
 		spawn_apple(32)
 
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_F and Input.is_key_pressed(KEY_ALT):
+			change_food(1000)
+
 func spawn_apple(min_distance: float) -> void:
 	var position
 	var other_apples: Array[Node] = get_tree().get_nodes_in_group("food")
