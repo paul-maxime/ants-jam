@@ -30,14 +30,15 @@ func upgrade(type: int, upgrade_scale: float) -> void:
 	ant_type = type
 	scale *= upgrade_scale
 	multiplier *= upgrade_scale
-	$"Ant Body/AnimationPlayer".speed_scale *= upgrade_scale
 
 func _process(delta: float) -> void:
 	if pause_for > 0:
+		$"Ant Body/AnimationPlayer".speed_scale = 1.0
 		$"Ant Body/AnimationPlayer".play("Ant Armature|Tracking")
 		pause_for -= delta
 		return
 
+	$"Ant Body/AnimationPlayer".speed_scale = 1.5 * multiplier
 	$"Ant Body/AnimationPlayer".play("Ant Armature|Walking")
 	
 	if not has_food:
