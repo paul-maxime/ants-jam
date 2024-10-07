@@ -20,6 +20,6 @@ func _on_main_scene_ants_changed(antlings: int, workers: int, matriarchs: int) -
 	update_buttons_state()
 
 func update_buttons_state() -> void:
-	$BuyAntlingButton.disabled = current_food < 1
-	$BuyWorkerAntButton.disabled = current_antlings < 5 || current_food < 10
-	$BuyMatriarchButton.disabled = current_workers < 5 || current_food < 100
+	$BuyAntlingButton.disabled = current_food < 1 || current_antlings >= 100
+	$BuyWorkerAntButton.disabled = current_antlings < 5 || current_food < 10 || current_workers >= 50
+	$BuyMatriarchButton.disabled = current_workers < 5 || current_food < 100 || current_matriarchs >= 10

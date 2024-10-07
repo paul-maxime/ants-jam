@@ -64,6 +64,7 @@ func think(should_pause: bool) -> void:
 func find_food() -> void:
 	target_food = null
 	var available_food = get_tree().get_nodes_in_group("food")
+	available_food.shuffle()
 	for food in available_food:
 		if position.distance_to(food.position) < 5.0 * (1.0 + (multiplier - 1.0) * 0.5):
 			target_food = food
