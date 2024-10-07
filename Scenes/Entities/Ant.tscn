@@ -468,14 +468,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mv7f3")
 
-[node name="Ant" type="Node3D"]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+[node name="Ant" type="Node3D" groups=["ant"]]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 script = ExtResource("1_shoal")
 
-[node name="Ant Armature" type="Node3D" parent="."]
+[node name="Ant Body" type="Node3D" parent="."]
+
+[node name="Ant Armature" type="Node3D" parent="Ant Body"]
 transform = Transform3D(1, 0, 0, 0, -0.697228, -0.71685, 0, 0.71685, -0.697228, 0, 2.48101, 3.56506)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="Ant Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="Ant Body/Ant Armature"]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.998121, -3.72529e-09, -0.0612664, 0.0470141, 0.641203, 0.76593, 0.0392842, -0.767372, 0.639998, 0, -2.91986, 3.4695)
@@ -750,13 +752,13 @@ bones/38/position = Vector3(0, 0, 0)
 bones/38/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
 bones/38/scale = Vector3(1, 1, 1)
 
-[node name="Ant" type="MeshInstance3D" parent="Ant Armature/Skeleton3D"]
+[node name="Ant" type="MeshInstance3D" parent="Ant Body/Ant Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_okws1")
 skin = SubResource("Skin_pr2bh")
 surface_material_override/0 = ExtResource("2_6ggvh")
 surface_material_override/1 = ExtResource("3_msdd0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ant Body"]
 libraries = {
 "": SubResource("AnimationLibrary_evpib")
 }

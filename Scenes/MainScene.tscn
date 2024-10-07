@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://2rqc6a04mfde"]
+[gd_scene load_steps=9 format=3 uid="uid://2rqc6a04mfde"]
 
 [ext_resource type="Script" path="res://Scripts/GameBehavior.gd" id="1_b32fq"]
 [ext_resource type="Script" path="res://Scripts/CameraBehavior.gd" id="2_fi50c"]
 [ext_resource type="Material" uid="uid://c488l48egtnos" path="res://Materials/FloorMaterial.tres" id="3_d8mch"]
 [ext_resource type="PackedScene" uid="uid://befhdtyv3sdt6" path="res://Scenes/Entities/AntHill.tscn" id="5_1an05"]
 [ext_resource type="Script" path="res://Scripts/ColorPalette.gd" id="5_34va3"]
+[ext_resource type="Script" path="res://Scripts/ShopMenu.gd" id="6_peutr"]
 
 [sub_resource type="Environment" id="Environment_sq114"]
 background_mode = 1
@@ -59,3 +60,59 @@ offset_top = 40.0
 offset_right = 109.0
 offset_bottom = 71.0
 text = "Swap palette"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -81.0
+offset_bottom = 58.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("6_peutr")
+
+[node name="FoodLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Food : 0"
+horizontal_alignment = 1
+
+[node name="BuyAntlingButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "X / Y antlings
+(X food)"
+
+[node name="BuyWorkerAntButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "X / Y workers
+(X antlings, Y food)"
+
+[node name="BuyMatriarchButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "X / Y matriarchs
+(X workers, Y food)"
+
+[node name="BuyQueenButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0 / 1 queens
+(10 matriarchs)"
+
+[connection signal="ants_changed" from="." to="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" method="_on_main_scene_ants_changed"]
+[connection signal="food_changed" from="." to="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" method="_on_main_scene_food_changed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyAntlingButton" to="." method="_on_buy_antling_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyWorkerAntButton" to="." method="_on_buy_worker_ant_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyMatriarchButton" to="." method="_on_buy_matriarch_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/BuyQueenButton" to="." method="_on_buy_queen_button_pressed"]
