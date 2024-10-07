@@ -15,8 +15,6 @@ signal ants_changed(antlings: int, workers: int, matriarchs: int)
 func _ready() -> void:
 	change_food(5)
 	update_ants_count()
-	for i in range(1000):
-		add_child(ant_scene.instantiate())
 		
 	for i in range(50):
 		spawn_apple(8)
