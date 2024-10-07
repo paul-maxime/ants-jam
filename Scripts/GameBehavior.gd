@@ -7,7 +7,7 @@ const MAP_MIN = -MAP_SIZE / 2
 var ant_scene = preload("res://Scenes/Entities/Ant.tscn")
 var apple_scene = preload("res://Scenes/Entities/Apple.tscn")
 
-var current_food: int = 1000
+var current_food: int = 0
 
 signal food_changed(new_value: int)
 signal ants_changed(antlings: int, workers: int, matriarchs: int)
@@ -51,9 +51,10 @@ func update_ants_count() -> void:
 	var workers = 0
 	var matriarchs = 0
 	for ant in all_ants:
-		if ant.multiplier > 2.9:
+		if ant.sacrificed: continue
+		if ant.ant_type == 3:
 			matriarchs += 1
-		elif ant.multiplier > 1.9:
+		elif ant.ant_type == 2:
 			workers += 1
 		else:
 			antlings += 1
@@ -65,6 +66,7 @@ func sacrifice_ants(type: int, count: int) -> bool:
 	all_ants.shuffle()
 	for ant in all_ants:
 		if ant.ant_type == type:
+			ant.sacrificed = true
 			ant.queue_free()
 			remaining -= 1
 			if remaining == 0: return true

@@ -17,6 +17,7 @@ var has_food: bool = false
 
 var ant_type: int = 1
 var multiplier: float = 1.0
+var sacrificed: bool = false
 
 func _ready() -> void:
 	var random_angle = randf_range(-PI, PI)
