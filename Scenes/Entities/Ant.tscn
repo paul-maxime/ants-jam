@@ -1989,8 +1989,6 @@ bones/50/rotation = Quaternion(0, 0, 0, 1)
 bones/50/scale = Vector3(1, 1, 1)
 
 [node name="Ant" type="MeshInstance3D" parent="Ant Body/Ant Armature/Skeleton3D"]
-cast_shadow = 0
-gi_mode = 0
 mesh = SubResource("ArrayMesh_0x8px")
 skin = SubResource("Skin_tl1y0")
 surface_material_override/0 = ExtResource("2_6ggvh")
